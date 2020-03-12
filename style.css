@@ -216,3 +216,9 @@ button{
 #autres{
     background-color: gray;
 }
+
+
+@media (max-width : 1412px) {
+    .fly-in-text li{
+        font-size: 2em;
+}

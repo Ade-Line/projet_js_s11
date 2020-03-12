@@ -71,6 +71,7 @@ function calculate() {
 
         // SECONDE METHODE
 
+
 function getGeoLocation(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -78,6 +79,7 @@ function getGeoLocation(){
         console.log('Not Supported');
     }
 }
+
 
 function onSuccess(position){
     const {latitude, longitude} = position.coords;
