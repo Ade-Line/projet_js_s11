@@ -1,51 +1,218 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Libre Baskerville', serif;
 }
-header{
-    background: cornsilk;
+
+h1{
+    color: #000;
+
+    color: linear-gradient;
 }
 
 
-nav{
-    width: 80%;
-    margin: auto;
-    height: 100px;
-}
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    align-items: center;
+/* BURGER MENU */
+
+.navbar {
+    width: 300px;
     height: 100%;
-}
-
-p{
-    text-align: center;
-    margin-bottom: 50px;
-}
-.box-container{
+    background-color: rgb(154, 185, 243);
+    position: fixed;
+    top: 0;
+    left: -300px;
     display: flex;
-justify-content: space-around;
-    width: 80%;
-    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.9s cubic-bezier(1, 0, 0, 1);
 }
 
-.box{
-border: 1px black solid;
-height: 200px;
-width: 200px;
-text-align: center;
-
+.change {
+    left: 0;
 }
-.btn-container{
+
+.burger-menu {
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    cursor: pointer;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    width: 80%;
-    margin: auto;
+   
 }
-.btn-container button{
-    padding: 50px;
-    width: 200px;
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: all 0.8s;
+}
+
+.change .line-1 {
+    transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+
+.change .line-2 {
+    opacity: 0;
+}
+
+.change .line-3 {
+    transform: rotateZ(405deg) translate(-8px, -6px);
+}
+
+.nav-list {
+    text-align: center;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 22px;
+    color: #fff;
+    position: relative;
+    padding: 3px 0;
+}
+
+.nav-link::before,
+.nav-link::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.nav-link::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+.nav-link::before {
+    top: 0;
+    transform-origin: left;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* TABLEAU */
+
+.container{
+    margin-top: 25px;
+}
+.table th{
+    text-align: center;
+}
+
+.table td{
+    text-align: center;
+}
+.calcul h3{
+    text-align: center;
+}
+.feuille{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+input{
+    width: 150px;
+    text-align: right;
+   
+}
+
+/* GEOLOCATION */
+
+.geo a {
+    display: none;
+    margin-left: 15px;
+    padding-top: 15px;
+}
+
+button{
+    border-radius: 5px;
+    width: 80px;
+    background-color: rgb(245, 180, 212);
+}
+
+/* ENFANTS */
+
+.fly-in-text {
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.fly-in-text li{
+    display: inline-block;
+    margin-right: 50px;
+    font-weight: 300;
+    font-size: 4em;
+    opacity: 1;
+    transition: all 2.5s ease;
+}
+
+.fly-in-text li:last-child{
+    margin-right: 0;
+}
+
+.fly-in-text.hidden li{
+    opacity: 0;
+}
+
+.fly-in-text.hidden li:nth-child(1){
+    transform: translateX(-200px);
+    transform: translateY(-200px);
+}
+
+.fly-in-text.hidden li:nth-child(2){
+    transform: translateX(20px);
+    transform: translateY(100px);
+}
+
+.fly-in-text.hidden li:nth-child(3){
+    transform: translateX(-150px);
+    transform: translateY(-80px);
+}
+
+.fly-in-text.hidden li:nth-child(4){
+    transform: translateX(10px);
+    transform: translateY(-200px);
+}
+
+.fly-in-text.hidden li:nth-child(5){
+    transform: translateX(-300px);
+    transform: translateY(200px);
+}
+
+.fly-in-text.hidden li:nth-child(6){
+    transform: translateX(20px);
+    transform: translateY(-20px);
+}
+
+.fly-in-text.hidden li:nth-child(7){
+    transform: translateX(30px);
+    transform: translateY(200px);
+}
+
+/* AUTRES */
+
+#autres{
+    background-color: gray;
 }

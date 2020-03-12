@@ -1,85 +1,98 @@
-const navbar = document.querySelector('header')
+//BURGER MENU
 
+const menuIcon = document.querySelector('.burger-menu');
+const navbar = document.querySelector('.navbar');
 
-navbar.addEventListener('click', function (){
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('change');
+});
 
-    const currentColor = document.querySelector('header').style.background
+//CALCUL FRAIS
 
-    if (currentColor === "coral"){
-        document.querySelector('header').style.background = "blue"
-    } else {
-        document.querySelector('header').style.background = "coral"
-    }
-})
-
-const li = document.querySelector('ul')
-
-li.addEventListener('mousemove', function() {
-    const color = document.querySelector('ul').style.color
-
-    document.querySelector('ul').style.color = "green"
-
-})
-
-li.addEventListener('mouseout', function() {
-    const color = document.querySelector('ul').style.color
-
-    document.querySelector('ul').style.color = "black"
-
-})
-
-let btn1 = document.getElementById('btn1')
-
-btn1.addEventListener('click', function(){
-    document.querySelector('body').style.background = "aquamarine"
-})
-
-let btn2 = document.getElementById('btn2')
-let box1 = document.getElementById('box1')
-
-
-btn2.addEventListener('click', function(){
-    const currentColor = document.querySelector('#box1').style.background
-
-    if(currentColor === "white") {
-        document.getElementById('box1').style.background = "red"
-    }else{
-        document.getElementById('box1').style.background = "white"
-    }
-})
-
-let btn3 = document.getElementById('btn3')
-let box2 = document.getElementById('box2')
-
-
-btn3.addEventListener('click', function(){
-    document.getElementById('box2').innerText = "Coucou John"
-
-})    
-
-let btn4 = document.getElementById('btn4')
-let box3 = document.getElementById('box3')
-
-btn4.addEventListener('click', function () {
-    const currentBorder = document.getElementById('box3').style.border
-    if (currentBorder === "1px solid black") {
-        document.getElementById('box3').style.border = "1px solid green"
-    } else {
-        document.getElementById('box3').style.border = "1px solid black"
-    }
-
-
-    let title = document.createElement("h1")
+function calculer() {
     
-    let lien = document.createElement("a")
-   
-    let texte = document.createTextNode("John Forever")
+    let child = document.getElementById('child').value;
+    let hour = document.getElementById('hour').value;
+    let tarif = document.getElementById('tarif').value;
+    let entretien = document.getElementById('entretien').value;
+    let repas = document.getElementById('repas').value;
+    let gouter = document.getElementById('gouter').value;
+      
+    let result = +hour * +tarif * +child + +entretien + +repas + +gouter
 
-    lien.appendChild(texte)
-    title.appendChild(lien)
+    document.getElementById('result').value = result.toFixed(2)
 
-    let node = document.getElementById("box3")
-    node.appendChild(title)
+}
+
+function calculate() {
+    let child1 = document.getElementById('child1').value;
+    let hour1 = document.getElementById('hour1').value;
+    let tarif1 = document.getElementById('tarif1').value;
+    let entretien1 = document.getElementById('entretien1').value;
+    let repas1 = document.getElementById('repas1').value;
+    let gouter1 = document.getElementById('gouter1').value;
+
+    let result1 = +hour1 * +tarif1 * +child1 + +entretien1 + +repas1 + +gouter1
+
+    document.getElementById('result1').value = result1.toFixed(2)
+
+    let cout = document.getElementById('result').value
+      
+    let cout1 = document.getElementById('result1').value
+
+    let result2 = +cout + +cout1
+
+    document.getElementById('result2').value = result2.toFixed(2)
+
+}
 
 
-})
+
+
+
+//GEOLOCATION
+
+        // PREMIERE METHODE
+
+// var x = document.getElementById("demo");
+
+// function getGeoLocation(){
+//     if(navigator.geolocation){
+//         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//     }else{
+//         x.innerHTML = "La géolocaliastion n'est pas prise en compte"
+//     }
+// }
+
+// function onSuccess(position) {
+//     x.innerHTML = "Latitude : " + position.coords.latitude + 
+//     "<br>Longitude: " + position.coords.longitude;
+// }
+
+        // SECONDE METHODE
+
+function getGeoLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }else{
+        console.log('Not Supported');
+    }
+}
+
+function onSuccess(position){
+    const {latitude, longitude} = position.coords;
+    // const {latitude, longitude} = {
+    //     latitude: '40.785091',
+    //     longitude: '-73.968285'
+    // };
+
+    const url = `https://www.latlong.net/c/?lat=${latitude}&long=${longitude}`;
+
+    document.querySelector(".geo a").setAttribute('href', url);
+    document.querySelector(".geo a").style.display = 'block';
+}
+
+function onError(error){
+    console.log(error);
+}
+

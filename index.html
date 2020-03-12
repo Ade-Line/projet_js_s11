@@ -1,40 +1,158 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
 
-        <nav>
-            <ul>
-                <li>ACCUEIL</li>
-                <li>A PROPOS</li>
-                <li>CONTACT</li>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <class class="container">
+        <nav class="navbar">
+            <div class="burger-menu ">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="geoloc.html" class="nav-link">Géoloc</a>
+                </li>
+                <li class="nav-item">
+                    <a href="enfants.html" class="nav-link">Côté Enfants</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Côté Parents</a>
+                </li>
+                <li class="nav-item">
+                    <a href="autre.html" class="nav-link">Autres</a>
+                </li>
             </ul>
         </nav>
-    </header>
-    <p>Il faut faire un HOVER sur les liens de la navbar </p>
-    <div class="btn-container">
-        <button id="btn1">En cliquant sur moi le background de ma page doit devenir coral</button>
-    </div>
-    <div class="box-container">
-        <div id="box1" class="box">BOX 1</div>
-        <div id="box2" class="box">BOX 2</div>
-        <div id="box3" class="box">BOX 3</div>
+    </class>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 id="titre">Calcul frais de garde par jour</h2>
+            </div>
+        </div>
     </div>
 
-    <div class="btn-container">
-        <button id="btn2">En cliquant sur moi la BOX 1 doit devenir rouge</button>
-        <button id="btn3">En cliquant sur moi la BOX 2 doit afficher "Coucou John"</button>
-        <button id="btn4">En cliquant sur moi les bordures de la BOX 3 doivent devenir vertes et ajouter une balise H1 avec écrit John Forever</button> 
+    <!-- TABLEAU -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-secondary">
+                        <thead>
+                            <tr>
+                                <th class="col1" scope="Tarif net/heure">Tarif net/heure</th>
+                                <th class="col2" scope="Frais d'entretien/jour">Frais d'entretien/jour</th>
+                                <th class="col3" scope="Repas enfant - 1an">Repas enfant - 1an</th>
+                                <th class="col4" scope="Repas enfant + 1an">Repas enfant + 1an</th>
+                                <th class="col5" scope="Goûter">Goûter</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="tar1">3.20</td>
+                                <td id="tar2">3.00</td>
+                                <td id="tar3">2.00</td>
+                                <td id="tar4">3.00</td>
+                                <td id="tar5">1.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" class="calcul">
+        <div class="row">
+            <div class="col-md-12 text-center m-1 pb-3">
+
+                <div class="row">
+                    <div class="col-md-6 feuille">
+                        <h3>Enfant(s) - 1 an</h3>
+                        <td>Nbre d'enfant<input type="text" size="15" id="child" /></td> <br>
+
+                        <td>Nbre d'heure/jour<input type="text" size="15" id="hour" onkeyup="calculer()" /></td> <br>
+
+                        <td>Tarif net/heure<input value="3.20" type="text" size="15" id="tarif" disabled /></td> <br>
+
+                        <td>Frais d'entretien<input value="3.00" type="text" size="15" id="entretien" disabled /></td>
+                        <br>
+
+                        <td>Repas<input value="2.00" type="text" size="15" id="repas" disabled /></td> <br>
+
+                        <td>Goûter<input value="1.00" type="text" size="15" id="gouter" disabled /></td> <br>
+
+                        <td>Coût à la journée<input type="text" size="15" id="result" disabled /></td>
+
+                    </div>
+
+                    <div class="col-md-6 feuille">
+                        <h3>Enfant(s) + 1 an</h3>
+                        <td>Nbre d'enfant<input type="text" size="15" id="child1" /></td> <br>
+
+                        <td>Nbre d'heure/jour<input type="text" size="15" id="hour1" onkeyup="calculate()" /></td> <br>
+
+                        <td>Tarif net/heure<input value="3.20" type="text" size="15" id="tarif1" disabled /></td> <br>
+
+                        <td>Frais d'entretien<input value="3.00" type="text" size="15" id="entretien1" disabled /></td>
+                        <br>
+
+                        <td>Repas<input value="3.00" type="text" size="15" id="repas1" disabled /></td> <br>
+
+                        <td>Goûter<input value="1.00" type="text" size="15" id="gouter1" disabled /></td> <br>
+
+                        <td>Coût à la journée<input type="text" size="15" id="result1" disabled /></td>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Total frais de garde par jour</h2>
+
+                <td><input type="text" size="15" id="result2" disabled onkeyup="calculate()" /></td>
+
+            </div>
+        </div>
     </div>
 
     
 
-    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+
 </body>
+
 </html>
