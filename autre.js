@@ -1,20 +1,22 @@
-document.getElementById("titre").addEventListener("mouseover", mouseOver);
-document.getElementById("titre").addEventListener("mouseout", mouseOut);
+const deg = 6;
+const hr = document.querySelector('#hr');
+const mn = document.querySelector('#mn');
+const sc = document.querySelector('#sc');
 
-function mouseOver(){
-   
-    document.getElementById('titre').style.color = "red";
-}
+setInterval(() => {
 
-function mouseOut(){
-   
-    document.getElementById('titre').style.color = "black";
-}
+let day = new Date();
+let hh = day.getHours() * 30;
+let mm = day.getMinutes() * deg;
+let ss = day.getSeconds() * deg;
+
+hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+
+mn.style.transform = `rotateZ(${mm}deg)`;
+
+sc.style.transform = `rotateZ(${ss}deg)`;
+
+})
 
 
-// document.getElementsByClassName("fab").addEventListener("mouseover", mouseOver);
 
-// function mouseOver(){
-
-//     document.getElementsByClassName('fab').style.color = "green";
-// }    
